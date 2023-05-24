@@ -25,4 +25,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: userapi:$(date +%s)
+        tags: userapi:latest

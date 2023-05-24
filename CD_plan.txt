@@ -1,0 +1,17 @@
+Continuous Delivery plan for the app
+
+As this app is just used for normal CRUD operations and if we extend it with further use-cases, 
+a rolling-update deployment pattern can be followed, so that one pod gets updated out of the total replicaset, which could serve customers accessing the pod.
+When the pod gets updated, the next pod gets restarted with the new changes.
+
+TeamCity and Jenkins both are great options to define Continuous delivery pattern for this app.
+With Teamcity, you could have templates, where agent requirements, artifactory credentials, etc. can be provided and used with the jobs, 
+which can be created based on this template.
+Other important credentials, secret paths can be provided as System/ environment parameters by providing them as passwords for safety purposes.
+Stages of jobs can be created, which includes lint, test, build and then deploy to AWS ECS.
+
+Another solution could be to use Jenkins, where pipeline jobs can be created and dependency can be created to deploy the app after a successful build.
+
+Similar to Github actions, these both solutions can be used to deploy them to the desired infrastructure. 
+With the above mentioned CI/CD tools, there are a lot of features like scheduled triggers, build templates, custom test activities can be performed.
+
